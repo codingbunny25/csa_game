@@ -14,6 +14,9 @@ struct Carta {
 };
 
 
+typedef char classe; //floresta->f, realeza->r, povo->p, exercito->x, espíritos->e
+typedef char atributo;//dano em área->d, atirador->a, alvo->t, guerreiro->g, suporte->s, curandeiro->c
+
 
 Carta mineiro {   
     "Mineiro",
@@ -23,6 +26,7 @@ Carta mineiro {
     0,//raridade
     'p', //classe
     'g' //atributo
+    'x' // atributo2
 
 };
 Carta bobo {  
@@ -31,8 +35,9 @@ Carta bobo {
     7, //vida
     0, //cura
     0,raridade
-    'p', //classe
+    'r', //classe
     't' //atributo
+    'x' //atributo2
 };
 Carta mulher_espiritos {   
     "Mulher que fala \ncom espíritos",
@@ -42,5 +47,143 @@ Carta mulher_espiritos {
     0,//raridade
     'e', //classe
     'g' //atributo
+    'x' //atributo 2
 
+};
+
+
+--------------------------------------------------------
+
+
+
+
+Carta doende {  
+    "Doende"
+    2, //dano
+    6, //vida
+    0, //cura
+    0,raridade
+    'f', //classe
+    'g' //atributo
+    'x' //atributo2
+};
+Carta arqueiro {  
+    "Arqueiro", 
+    2, //dano
+    8, //vida
+    0, //cura
+    0,raridade
+    'f', //classe
+    'a' //atributo
+    'x' //atributo2
+};
+Carta soldadoinic {  
+    "Soldado Iniciante", 
+    4, //dano
+    7, //vida
+    0, //cura
+    0,raridade
+    'x', //classe
+    'g' //atributo
+    'x' //atributo2
+};
+Carta balao {  
+    "Balão", 
+    0, //dano
+    7, //vida
+    0, //cura
+    0,raridade
+    'p', //classe
+    't' //atributo
+    'x' //atributo2
+};
+Carta espantalho {  
+    "Espantalho", 
+    o, //dano
+    7, //vida
+    0, //cura
+    0,raridade
+    'p', //classe
+    't' //atributo
+    'x' //atributo2
+};
+Carta lanceiro  {  
+    " Lanceiro", 
+    3, //dano
+    9, //vida
+    0, //cura
+    0,raridade
+    'x', //classe
+    'g' //atributo
+    'x' //atributo2
+};
+Carta ferreiro {  
+    "Ferreiro", 
+    0, //dano
+    10, //vida
+    3, //cura
+    1,raridade
+    'p', //classe
+    'c' //atributo
+    'x' //atributo2
+};
+Carta pescador {  
+    "Pescador", 
+    3, //dano
+    10, //vida
+    0, //cura
+    0,raridade
+    'p', //classe
+    't' //atributo
+    'x' //atributo2
+};
+Carta caçador {  
+    "Caçador", 
+    6, //dano
+    12, //vida
+    0, //cura
+    1,raridade
+    'f', //classe
+    'd' //atributo
+    'a' //atributo2
+};
+Carta elfo {  
+    "Elfo", 
+    0, //dano
+    10, //vida
+    4, //cura
+    2,raridade
+    'f', //classe
+    's' //atributo
+    'x' //atributo2
+};
+Carta guardiaf {  
+    "Guardiã da floresta", 
+    4, //dano
+    9, //vida
+    0, //cura
+    1,raridade
+    'f', //classe
+    'g' //atributo
+    'x' //atributo2
+};
+Carta goblinld {  
+    "Goblin lançador de dardos", 
+    3, //dano
+    7, //vida
+    0, //cura
+    1,raridade
+    'f', //classe
+    'a' //atributo
+    'x' //atributo2
+};
+Carta lenhador {  
+    "Lenhador", 
+    5, //dano
+    10, //vida
+    0, //cura
+    2,raridade
+    'p', //classe
+    'g' //atributo
+    'x' //atributo2
 };
