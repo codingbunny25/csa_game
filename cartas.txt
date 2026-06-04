@@ -1,0 +1,46 @@
+
+
+struct Carta {
+    char nome [128];
+    int dano;
+    int vida;
+    int cura;
+    int raridade;//0->verde,1->azul,2-vermelho,3->amarelo
+    classe cl;
+    atributo at1;
+    atributo at2;
+    
+    
+};
+
+
+
+Carta mineiro {   
+    "Mineiro",
+    3, //dano
+    7, //vida
+    0, //cura
+    0,//raridade
+    'p', //classe
+    'g' //atributo
+
+};
+Carta bobo {  
+    "Bobo", 
+    0, //dano
+    7, //vida
+    0, //cura
+    0,raridade
+    'p', //classe
+    't' //atributo
+};
+Carta mulher_espiritos {   
+    "Mulher que fala \ncom espíritos",
+    4, //dano
+    8, //vida
+    0, //cura
+    0,//raridade
+    'e', //classe
+    'g' //atributo
+
+};
