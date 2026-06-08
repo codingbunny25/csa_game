@@ -53,8 +53,10 @@ struct Pilhas{
 
 
 struct Jogador {
-    Carta cartas[31];
+    Carta cartas[max_baralho];
+    int spcartas;
     int posi;
+    int vez;
 };
 
 
@@ -164,33 +166,57 @@ Pilhas makePilhas(Carta baralho []){
 //no mapa os quadrados têm cores ->   nada - 1 ; verde - 2 ; laranja - 3; azul - 4; amarelo - 5; vermelho - 6;portal - 7;
 
 
-void auxTileVerde(Jogador j){
-
-}
 
 void auxTileLaranja(Jogador j){
-    
+    j.posi += dado();
+    j.vez =0;
+}
+
+void auxTileVerde(Jogador j,Pilhas p){
+    int d = dado();
+    if(d>1){
+        j.cartas[j.spcartas]= p.verde[p.spverde];
+        p.spverde--;
+    }
+    j.vez =0;
 }
 
 
 
-void auxTileAzul    (Jogador j){
-
+void auxTileAzul    (Jogador j,Pilhas p){
+    int d = dado();
+    if(d>2){
+        j.cartas[j.spcartas]= p.azul[p.spazul];
+        p.spazul--;
+    }
+    j.vez =0;
 }
-void auxTileAmarelo (Jogador j){
 
+void auxTileAmarelo (Jogador j,Pilhas p){
+    int d = dado();
+    if(d==6){
+        j.cartas[j.spcartas]= p.amarela[p.spamarela];
+        p.spamarela--;
+    }
+    j.vez =0;
 }
-void auxTileVermelho(Jogador j){
 
+void auxTileVermelho(Jogador j,Pilhas p){
+    int d = dado();
+    if(d>4){
+        j.cartas[j.spcartas]= p.vermelha[p.spvermelha];
+        p.spvermelha--;
+    }
+    j.vez =0;
 } 
 
 
-void gereTiles (Jogador j, int tile){
+void gereTiles (Jogador j, int tile,Pilhas p ){
 
     switch (tile){
 
         case 2:
-            auxTileVerde(j);
+            auxTileVerde(j,p);
             break;
 
         case 3:
@@ -198,13 +224,13 @@ void gereTiles (Jogador j, int tile){
             break;
         
         case 4 :
-            auxTileAzul(j);
+            auxTileAzul(j,p);
             break;
         case 5:
-            auxTileAmarelo(j);
+            auxTileAmarelo(j,p);
             break;
         case 6:
-            auxTileVermelho(j);    
+            auxTileVermelho(j,p);    
         
         default : 
         break;
