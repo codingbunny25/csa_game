@@ -90,6 +90,35 @@ int dado () {
 }
 
 
+int lancaDado (int d){
+    int v [6] = {0};
+    int n =0,tentativas =0;
+    do {
+        std::cout << "Escreve a tua tentativa(1 a 6)\n";
+        std::cin >> n;
+
+        if(n<1||n>6){
+            std::cout << "Tentativa Inválida !!!\nTenta de novo : ) \n";
+            continue;
+        }
+        else {
+            if(v[n-1]==1){
+            std::cout << "Já tinhas tentado esse número! \nTenta de novo : )";
+            continue;
+            }
+            else {
+                std::cout << "Número errado : (\nTenta de novo : )\n";
+                v[n-1] = 1;
+                tentativas++;
+                continue;
+            }
+        }
+    }
+    while(n!=d);
+    return 6-tentativas+ 1;
+}
+
+
 void baralhar (Carta baralho []){
 
     std::random_device rd;
