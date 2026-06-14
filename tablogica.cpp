@@ -1,77 +1,11 @@
 #include <iostream>
 #include <random>
-
-
-
-
-
-
-
-#define max_verde 9
-#define max_azul 25
-#define max_vermelho 25
-#define max_amarelo 25
-
-
-#define max_baralho 31
-
-// typedefs, structs , mapa 
-
-
-typedef char classe; //floresta->f, realeza->r, povo->p, exercito->x, espíritos->e
-typedef char atributo;//dano em área->d, atirador->a, alvo->t, guerreiro->g, suporte->s, curandeiro->c
-
-
-
-
-struct Carta {
-    char nome [128];
-    int dano;
-    int vida;
-    int cura;
-    int raridade;//0->verde,1->azul,2-vermelho,3->amarelo
-    classe cl;
-    atributo at1;
-    atributo at2;
-    
-    
-};
-
-
-
-struct Pilhas{
-
-    Carta verde [max_verde] ;
-    int spverde;
-    Carta azul [max_azul] ;
-    int spazul;
-    Carta vermelha [max_vermelho] ;
-    int spvermelha;
-    Carta amarela [max_amarelo] ;
-    int spamarela;
-};
-
-
-struct Jogador {
-    Carta cartas[max_baralho];
-    int spcartas;
-    int posi;
-    int vez;
-};
+#include "tablogica.h"
 
 
 //no mapa os quadrados têm cores ->   nada - 1 ; verde - 2 ; laranja - 3; azul - 4; amarelo - 5; vermelho - 6;portal - 7;
 
 int mapa [] = {1,2,1,2,1,1,2,1,1,4,1,2,3,1,4,6,1,2,1,2,1,1,2,1,1,1,1,4,1,6,1,3,1,1,2,3,2,1,1,4,1,2,6,1,3,1,2,1,5,1,4,1,6,5,4,7};
-Carta baralho [max_baralho];
-
-
-
-
-
-
-
-
 
 
 
@@ -196,51 +130,51 @@ Pilhas makePilhas(Carta baralho []){
 
 
 
-void auxTileLaranja(Jogador j){
-    j.posi += dado();
-    j.vez =0;
+void auxTileLaranja(Jogador * j){
+    j->posi += dado();
+    j->vez =0;
 }
 
-void auxTileVerde(Jogador j,Pilhas p){
+void auxTileVerde(Jogador * j,Pilhas * p){
     int d = dado();
     if(d>1){
-        j.cartas[j.spcartas]= p.verde[p.spverde];
-        p.spverde--;
+        j->cartas[j->spcartas]= p->verde[p->spverde];
+        p->spverde--;
     }
-    j.vez =0;
+    j->vez =0;
 }
 
 
 
-void auxTileAzul    (Jogador j,Pilhas p){
+void auxTileAzul    (Jogador * j,Pilhas * p){
     int d = dado();
     if(d>2){
-        j.cartas[j.spcartas]= p.azul[p.spazul];
-        p.spazul--;
+        j->cartas[j->spcartas]= p->azul[p->spazul];
+        p->spazul--;
     }
-    j.vez =0;
+    j->vez =0;
 }
 
-void auxTileAmarelo (Jogador j,Pilhas p){
+void auxTileAmarelo (Jogador * j,Pilhas * p){
     int d = dado();
     if(d==6){
-        j.cartas[j.spcartas]= p.amarela[p.spamarela];
-        p.spamarela--;
+        j->cartas[j->spcartas]= p->amarela[p->spamarela];
+        p->spamarela--;
     }
-    j.vez =0;
+    j->vez =0;
 }
 
-void auxTileVermelho(Jogador j,Pilhas p){
+void auxTileVermelho(Jogador * j,Pilhas * p){
     int d = dado();
     if(d>4){
-        j.cartas[j.spcartas]= p.vermelha[p.spvermelha];
-        p.spvermelha--;
+        j->cartas[j->spcartas]= p->vermelha[p->spvermelha];
+        p->spvermelha--;
     }
-    j.vez =0;
+    j->vez =0;
 } 
 
 
-void gereTiles (Jogador j, int tile,Pilhas p ){
+void gereTiles (Jogador * j, int tile,Pilhas * p ){
 
     switch (tile){
 
@@ -266,3 +200,4 @@ void gereTiles (Jogador j, int tile,Pilhas p ){
         
     }
 }
+
