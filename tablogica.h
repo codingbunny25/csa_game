@@ -22,6 +22,8 @@ typedef char atributo;//dano em área->d, atirador->a, alvo->t, guerreiro->g, su
 
 
 
+int mapa [] = {1,2,1,2,1,1,2,1,1,4,1,2,3,1,4,6,1,2,1,2,1,1,2,1,1,1,1,4,1,6,1,3,1,1,2,3,2,1,1,4,1,2,6,1,3,1,2,1,5,1,4,1,6,5,4,7};
+
 
 struct Carta {
     char nome [128];
@@ -64,7 +66,7 @@ Carta baralho [max_baralho];
 int dado ();
 int lancaDado (int d);
 void baralhar (Carta baralho []);
-Pilhas makePilhas(Carta baralho []);
+void makePilhas(Pilhas & p,Carta baralho []);
 
 
 void auxTileLaranja(Jogador * j);
@@ -73,7 +75,7 @@ void auxTileAzul    (Jogador * j,Pilhas * p);
 void auxTileAmarelo (Jogador * j,Pilhas * p);
 void auxTileVermelho(Jogador * j,Pilhas * p);
 void gereTiles (Jogador * j, int tile,Pilhas * p );
-
+void jogaTab ();
 
 
 
